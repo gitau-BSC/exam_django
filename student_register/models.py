@@ -23,7 +23,7 @@ class Exam(models.Model):
 
 class Registration(models.Model):
     student_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='registrations')
-    Reg_number=models.CharField(max_length=100)
+    Reg_number = models.CharField(max_length=100, default='DEFAULT_VALUE')
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='registrations')
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     registration_date = models.DateTimeField(default=now)

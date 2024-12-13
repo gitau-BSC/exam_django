@@ -17,12 +17,15 @@ class RegistrationForm(forms.ModelForm):
         labels = {
             'student_name':'Student Name',
             'Reg_number':'Registration Number',
-            ' exam':'Exam',
+            'exam':'Exam',
             'course':'Course',
             'registration_date':'Registration Date',
         }
 
-
+    def __init__(self,*args,**kwargs):
+        super(RegistrationForm,self).__init__(*args,**kwargs)
+        self.fields['exam'].empty.label='select'
+        self.fields['course'].required ='False'
 
 
 class CourseForm(forms.ModelForm):
